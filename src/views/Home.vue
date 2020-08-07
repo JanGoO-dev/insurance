@@ -1,14 +1,23 @@
 <template>
   <div>
     <PrimaryNavbar></PrimaryNavbar>
+    <SecondaryNavbar></SecondaryNavbar>
+    <Carousel></Carousel>
+    <ListingFilter></ListingFilter>
   </div>
 </template>
 
 <script>
 import PrimaryNavbar from "../components/PrimaryNavbar";
+import SecondaryNavbar from "../components/SecondaryNavbar";
+import Carousel from "../components/Carousel";
+import ListingFilter from "../components/ListingFilter";
 export default {
   components: {
     PrimaryNavbar,
+    SecondaryNavbar,
+    Carousel,
+    ListingFilter,
   },
 };
 </script>

@@ -27,7 +27,7 @@
       <section id="nav-btn">
         <button
           type="submit"
-          class="btn btn-outline-warning round-left round-right px-4"
+          class="btn btn-warning round-left round-right px-4"
         >
           Login
         </button>
@@ -58,11 +58,11 @@ export default {};
   border-top-right-radius: 354px;
   border-bottom-right-radius: 354px;
 }
-
 .navbar-brand > span,
 button[type="button"],
 input[type="search"] {
   color: #c6c6c6;
+  background: #fff;
 }
 
 button[type="button"]:focus,
@@ -77,7 +77,7 @@ input[type="search"]:focus {
 
 input[type="search"] {
   width: 400px;
-  height: 45px;
+  height: 50px;
 }
 
 .form-control::-webkit-input-placeholder {
@@ -98,9 +98,55 @@ input[type="search"] {
 
 // Grid Implimetation with responsiveness
 #nav-wrap {
-  height: 70px;
+  height: 75px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 2fr 1fr;
   place-items: center;
+}
+
+@media screen and (max-width: 1030px) {
+  #nav-wrap {
+    height: 150px;
+    grid-template-columns: repeat(2, 1fr);
+    #nav-logo {
+      grid-row: 1 / span 1;
+      grid-column: 1 / span 1;
+    }
+    #nav-search {
+      width: 80%;
+      grid-row: 2 / span 1;
+      grid-column: 1 / span 2;
+    }
+    #nav-btn {
+      grid-row: 1 / span 1;
+      grid-column: 2 / span 1;
+    }
+  }
+}
+
+@media screen and (max-width: 630px) {
+  #nav-wrap {
+    height: 75px;
+    grid-template-columns: repeat(2, 1fr);
+    #nav-logo {
+      grid-row: 1 / span 1;
+      grid-column: 1 / span 1;
+    }
+    #nav-search {
+      input[type="search"] {
+        width: 200px;
+      }
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      border-radius: 0px;
+    }
+    #nav-btn {
+      grid-row: 1 / span 1;
+      grid-column: 2 / span 1;
+    }
+  }
 }
 </style>
