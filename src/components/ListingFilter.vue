@@ -4,25 +4,29 @@
       <div id="listing-title" class="container pl-5">
         <span class="h1">Listings</span>
       </div>
-      <div
-        id="listing-filter-nav"
-        class="round-left round-right container custom-shadow p-2"
-      >
-        <div class="title h4 text-secondary">Filter</div>
+      <div id="listing-filter-nav" class="round container custom-shadow p-2">
+        <div class="title">
+          <button class="btn btn-block border-secondary round-left">
+            <span class="px-4 letter-space text-secondary"
+              ><span class="invisible">#</span>Filter</span
+            >
+            <span class="pr-2 invisible">##.</span>
+          </button>
+        </div>
         <div
           v-for="(selector, index) in 4"
           :key="index"
-          class="form-group mx-3"
+          class="filter-select form-group mx-2"
         >
-          <select class="minimal form-control round-left round-right">
+          <select class="minimal border-secondary form-control rounded-0">
             <option selected>Choose...</option>
             <option>...</option>
           </select>
         </div>
         <div class="filter-btn">
-          <button class="btn btn-warning round-left round-right">
+          <button class="btn btn-warning btn-block round-right">
             <span class="px-4">Apply Filter</span>
-            <i class="fas fa-filter"></i>
+            <span class="pr-2"><i class="fas fa-filter"></i></span>
           </button>
         </div>
       </div>
@@ -51,6 +55,12 @@ export default {};
   -moz-border-radius-bottomright: 354px;
   border-top-right-radius: 354px;
   border-bottom-right-radius: 354px;
+}
+
+.round {
+  -webkit-border-radius: 45px;
+  -moz-border-radius: 45px;
+  border-radius: 45px;
 }
 
 select {
@@ -93,6 +103,10 @@ select.minimal:focus {
   outline: 0;
 }
 
+span.letter-space {
+  letter-spacing: 4px;
+}
+
 #listing-filter-wrap {
   display: grid;
   grid-template-columns: 1fr;
@@ -100,14 +114,57 @@ select.minimal:focus {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     div.title {
-      place-self: center;
-      padding-bottom: 0px;
+      place-self: start;
     }
     .form-group {
       margin-bottom: 0px;
     }
     div.filter-btn {
       place-self: end;
+    }
+  }
+}
+
+@media screen and (max-width: 1270px) {
+  #listing-filter-wrap {
+    #listing-filter-nav {
+      display: grid;
+      grid-template-columns: 1fr;
+      div.title {
+        margin-top: 5px;
+        place-self: center;
+        button {
+          font-size: 16pt;
+          border: none;
+          border-radius: 0px;
+        }
+      }
+      div.filter-select {
+        padding: 5px 12px;
+      }
+      div.filter-btn {
+        margin-top: 10px;
+        margin-bottom: 20px;
+        width: calc(100% - 40px);
+        place-self: center;
+        button {
+          border-radius: 0px;
+          border-bottom-left-radius: 20px;
+          border-bottom-right-radius: 20px;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  #listing-filter-wrap {
+    #listing-filter-nav {
+      box-shadow: none !important;
+      div.filter-btn {
+        button {
+          border-radius: 6px;
+        }
+      }
     }
   }
 }
