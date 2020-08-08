@@ -91,4 +91,28 @@ export default {};
   padding: 20px;
   backdrop-filter: blur(2px);
 }
+
+@media screen and (min-width: 1600px) {
+  .carousel-caption {
+    margin-bottom: 9%;
+  }
+}
+
+@media screen and (min-width: 1800px) {
+  .carousel-caption {
+    margin-bottom: 10%;
+  }
+}
+
+@media screen and (min-width: 2000px) {
+  .carousel-caption {
+    margin-bottom: 12%;
+  }
+}
+
+@media screen and (min-width: 2100px) {
+  .carousel-caption {
+    margin-bottom: 14%;
+  }
+}
 </style>

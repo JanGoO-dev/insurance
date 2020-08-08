@@ -135,6 +135,7 @@ input[type="search"] {
     #nav-logo {
       grid-row: 1 / span 1;
       grid-column: 1 / span 1;
+      font-size: 14pt;
     }
     #nav-search {
       input[type="search"] {
