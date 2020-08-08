@@ -6,7 +6,7 @@
       </div>
       <div id="listing-filter-nav" class="round container custom-shadow p-2">
         <div class="title">
-          <button class="btn btn-block border-secondary round-left">
+          <button class="btn btn-block border-info round-left">
             <span class="px-4 letter-space text-secondary"
               ><span class="invisible">##</span>Filter</span
             >
@@ -18,7 +18,7 @@
           :key="index"
           class="filter-select form-group mx-2"
         >
-          <select class="minimal border-secondary form-control rounded-0">
+          <select class="minimal border-info form-control rounded-0">
             <option selected>Choose...</option>
             <option>...</option>
           </select>

@@ -4,9 +4,7 @@
     <SecondaryNavbar></SecondaryNavbar>
     <Carousel></Carousel>
     <ListingFilter></ListingFilter>
-    <div class="container mt-5" id="card-wrap">
-      <Card v-for="(card, index) in 10" :key="index"></Card>
-    </div>
+    <Card></Card>
     <Footer></Footer>
   </div>
 </template>
@@ -27,6 +25,18 @@ export default {
     Card,
     Footer,
   },
+  data() {
+    return {
+      cards: [
+        { link: "@/assets/card1.jpg" },
+        { link: "@/assets/card2.jpg" },
+        { link: "@/assets/card3.jpg" },
+        { link: "@/assets/card4.jpg" },
+        { link: "@/assets/card5.jpg" },
+        { link: "@/assets/card6.jpg" },
+      ],
+    };
+  },
 };
 </script>
 
@@ -35,17 +45,5 @@ export default {
   -webkit-box-shadow: 0px 5px 29px -9px rgba(0, 0, 0, 0.25);
   -moz-box-shadow: 0px 5px 29px -9px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 5px 29px -9px rgba(0, 0, 0, 0.25);
-}
-
-#card-wrap {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  place-items: center;
-}
-
-@media screen and (max-width: 1000px) {
-  #card-wrap {
-    grid-template-columns: 1fr;
-  }
 }
 </style>

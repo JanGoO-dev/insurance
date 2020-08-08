@@ -24,7 +24,7 @@
         </div>
         <div class="carousel-item">
           <img
-            src="@/assets/slide1.png"
+            src="@/assets/slide2.png"
             class="d-block w-100 gray-filter"
             alt="Slide2"
           />
@@ -35,7 +35,7 @@
         </div>
         <div class="carousel-item">
           <img
-            src="@/assets/slide1.png"
+            src="@/assets/slide3.png"
             class="d-block w-100 gray-filter"
             alt="Slide3"
           />
@@ -79,9 +79,10 @@ export default {};
 }
 .carousel-inner {
   width: 100%;
-  max-height: 344px !important;
+  max-height: 350px !important;
 }
 .carousel-caption {
+  margin-bottom: 7%;
   left: 9%;
   text-align: left;
   background-color: #0749ff96;

@@ -1,7 +1,11 @@
 <template>
-  <div>
-    <div class="card m-3">
-      <img class="card-img-top" src="@/assets/card.jpg" alt="Card image cap" />
+  <div id="card-wrap" class="container mt-5">
+    <div v-for="(card, index) in cards" :key="index" class="card m-3">
+      <img
+        class="card-img-top"
+        :src="require(`@/assets/${card.imageLink}`)"
+        alt="Card image cap"
+      />
       <div class="card-body">
         <h5 class="card-title text-warning">Card title</h5>
         <p class="card-text text-secondary">
@@ -18,7 +22,20 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      cards: [
+        { imageLink: "card1.jpg" },
+        { imageLink: "card2.jpg" },
+        { imageLink: "card3.jpg" },
+        { imageLink: "card4.jpg" },
+        { imageLink: "card5.jpg" },
+        { imageLink: "card6.jpg" },
+      ],
+    };
+  },
+};
 </script>
 
 <style scoped>
@@ -38,5 +55,23 @@ export default {};
   -moz-border-radius-bottomright: 354px;
   border-top-right-radius: 354px;
   border-bottom-right-radius: 354px;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 15vw;
+  object-fit: cover;
+}
+
+#card-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
+}
+
+@media screen and (max-width: 1000px) {
+  #card-wrap {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
