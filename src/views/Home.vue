@@ -42,4 +42,10 @@ export default {
   grid-template-columns: 1fr 1fr;
   place-items: center;
 }
+
+@media screen and (max-width: 1000px) {
+  #card-wrap {
+    grid-template-columns: 1fr;
+  }
+}
 </style>

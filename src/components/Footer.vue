@@ -1,61 +1,90 @@
 <template>
   <div>
-    <footer class="footer-distributed">
-      <div class="footer-left">
-        <h3>Company<span>Logo</span></h3>
+    <!-- Site footer -->
+    <footer class="site-footer border-top border-warning">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-6">
+            <button
+              disabled
+              class="btn btn-outline-warning border-left-0 rounded-left-0 round-right pt-2 pb-1 pr-4 mb-3"
+            >
+              <h6 class="text-primary">About</h6>
+            </button>
+            <p class="text-justify text-secondary">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, est
+              repellat laborum dicta quaerat ea optio placeat magnam
+              voluptatibus nostrum magni dolorum. Incidunt, fugit eos veniam
+              temporibus ipsam neque quas dolore quis. Reprehenderit quae
+              quibusdam aspernatur, quod qui et placeat?
+            </p>
+          </div>
 
-        <p class="footer-links">
-          <a href="#">Home</a>
-          ·
-          <a href="#">Blog</a>
-          ·
-          <a href="#">Pricing</a>
-          ·
-          <a href="#">About</a>
-          ·
-          <a href="#">Faq</a>
-          ·
-          <a href="#">Contact</a>
-        </p>
+          <div class="col-xs-6 col-md-3">
+            <button
+              disabled
+              class="btn btn-outline-warning border-left-0 rounded-left-0 round-right pt-2 pb-1 pr-4 mb-3"
+            >
+              <h6 class="text-primary">Categories</h6>
+            </button>
+            <ul class="footer-links">
+              <li v-for="(link, index) in 5" :key="index">
+                <a href="#">Link {{ index }}</a>
+              </li>
+            </ul>
+          </div>
 
-        <p class="footer-company-name">muhammad's project &copy; 2020</p>
+          <div class="col-xs-6 col-md-3">
+            <button
+              disabled
+              class="btn btn-outline-warning border-left-0 rounded-left-0 round-right pt-2 pb-1 pr-4 mb-3"
+            >
+              <h6 class="text-primary">Quick Links</h6>
+            </button>
+            <ul class="footer-links">
+              <li><a class="text-secondary" href="#">About Us</a></li>
+              <li><a class="text-secondary" href="#">Contact Us</a></li>
+              <li>
+                <a class="text-secondary" href="#">Contribute</a>
+              </li>
+              <li>
+                <a class="text-secondary" href="#">Privacy Policy</a>
+              </li>
+              <li><a class="text-secondary" href="#">Sitemap</a></li>
+            </ul>
+          </div>
+        </div>
+        <hr class="border-warning" />
       </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-sm-6 col-xs-12">
+            <p class="copyright-text">
+              Copyright &copy; 2017 All Rights Reserved by
+              <a href="#">Muhammad Bin Shahzad</a>.
+            </p>
+          </div>
 
-      <div class="footer-center">
-        <div>
-          <span class="material-icons">
-            room
-          </span>
-          <p><span>sample street</span> city, country</p>
-        </div>
-
-        <div>
-          <span class="material-icons">
-            call
-          </span>
-          <p>+92 00 00 00 000</p>
-        </div>
-
-        <div>
-          <span class="material-icons">
-            mail
-          </span>
-          <p><a href="#">sample@company.com</a></p>
-        </div>
-      </div>
-
-      <div class="footer-right">
-        <p class="footer-company-about">
-          <span>About the company</span>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi, sed!
-          &amp; SEO Learner.
-        </p>
-
-        <div class="footer-icons">
-          <a href="#"><i class="fa fa-facebook"></i></a>
-          <a href="#"><i class="fa fa-twitter"></i></a>
-          <a href="#"><i class="fa fa-linkedin"></i></a>
-          <a href="#"><i class="fa fa-github"></i></a>
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <ul class="social-icons">
+              <li>
+                <a class="facebook" href="#"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+              </li>
+              <li>
+                <a class="twitter" href="#"><i class="fab fa-twitter"></i></a>
+              </li>
+              <li>
+                <a class="dribbble" href="#"><i class="fab fa-dribbble"></i></a>
+              </li>
+              <li>
+                <a class="linkedin" href="#"
+                  ><i class="fab fa-linkedin-in"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </footer>
@@ -67,157 +96,161 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
-.footer-distributed {
-  background-color: #292c2f;
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
-  box-sizing: border-box;
-  width: 100%;
-  text-align: left;
-  font: bold 16px "Comfortaa", cursive;
-
-  padding: 55px 50px;
-  // margin-top: 80px;
+.round-left {
+  -webkit-border-top-left-radius: 354px;
+  -webkit-border-bottom-left-radius: 354px;
+  -moz-border-radius-topleft: 354px;
+  -moz-border-radius-bottomleft: 354px;
+  border-top-left-radius: 354px;
+  border-bottom-left-radius: 354px;
 }
 
-.footer-distributed .footer-left,
-.footer-distributed .footer-center,
-.footer-distributed .footer-right {
-  display: inline-block;
-  vertical-align: top;
+.round-right {
+  -webkit-border-top-right-radius: 354px;
+  -webkit-border-bottom-right-radius: 354px;
+  -moz-border-radius-topright: 354px;
+  -moz-border-radius-bottomright: 354px;
+  border-top-right-radius: 354px;
+  border-bottom-right-radius: 354px;
 }
-
-.footer-distributed .footer-left {
-  width: 40%;
+.site-footer {
+  border-width: 10px !important;
+  margin-top: 80px;
+  background-color: #2a2b26;
+  padding: 45px 0 20px;
+  font-size: 15px;
+  line-height: 24px;
+  color: #737373;
 }
-
-.footer-distributed h3 {
-  color: #ffffff;
-  font: normal 36px "Comfortaa", cursive;
-  margin: 0;
+.site-footer hr {
+  border-top-color: #bbb;
+  opacity: 0.5;
 }
-
-.footer-distributed h3 span {
-  color: #5383d3;
+.site-footer hr.small {
+  margin: 20px 0;
 }
-
-.footer-distributed .footer-links {
-  color: #ffffff;
-  margin: 20px 0 12px;
-  padding: 0;
+.site-footer h6 {
+  // color: #fff;
+  font-size: 16px;
+  text-transform: uppercase;
+  margin-top: 5px;
+  letter-spacing: 2px;
 }
-
-.footer-distributed .footer-links a {
-  display: inline-block;
-  line-height: 1.8;
-  text-decoration: none;
-  color: inherit;
+.site-footer a {
+  color: #737373;
 }
-
-.footer-distributed .footer-company-name {
-  color: #8f9296;
-  font-size: 14px;
-  font-weight: normal;
-  margin: 0;
-}
-
-.footer-distributed .footer-center {
-  width: 35%;
-}
-
-.footer-distributed .footer-center i {
-  background-color: #33383b;
-  color: #ffffff;
-  font-size: 25px;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 42px;
-  margin: 10px 15px;
-  vertical-align: middle;
-}
-
-.footer-distributed .footer-center i.fa-envelope {
-  font-size: 17px;
-  line-height: 38px;
-}
-
-.footer-distributed .footer-center p {
-  display: inline-block;
-  color: #ffffff;
-  vertical-align: middle;
-  margin: 0;
-}
-
-.footer-distributed .footer-center p span {
-  display: block;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 2;
-}
-
-.footer-distributed .footer-center p a {
-  color: #5383d3;
+.site-footer a:hover {
+  color: #3366cc;
   text-decoration: none;
 }
-
-.footer-distributed .footer-right {
-  width: 20%;
+.footer-links {
+  padding-left: 0;
+  list-style: none;
 }
-
-.footer-distributed .footer-company-about {
-  line-height: 20px;
-  color: #92999f;
-  font-size: 13px;
-  font-weight: normal;
+.footer-links li {
+  display: block;
+}
+.footer-links a {
+  color: #737373;
+}
+.footer-links a:active,
+.footer-links a:focus,
+.footer-links a:hover {
+  color: #3366cc;
+  text-decoration: none;
+}
+.footer-links.inline li {
+  display: inline-block;
+}
+.site-footer .social-icons {
+  text-align: right;
+}
+.site-footer .social-icons a {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  margin-left: 6px;
+  margin-right: 0;
+  border-radius: 100%;
+  background-color: #33353d;
+}
+.copyright-text {
   margin: 0;
 }
-
-.footer-distributed .footer-company-about span {
-  display: block;
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-.footer-distributed .footer-icons {
-  margin-top: 25px;
-}
-
-.footer-distributed .footer-icons a {
-  display: inline-block;
-  width: 35px;
-  height: 35px;
-  cursor: pointer;
-  background-color: #33383b;
-  border-radius: 2px;
-
-  font-size: 20px;
-  color: #ffffff;
-  text-align: center;
-  line-height: 35px;
-
-  margin-right: 3px;
-  margin-bottom: 5px;
-}
-
-@media (max-width: 880px) {
-  .footer-distributed {
-    font: bold 14px "Comfortaa", cursive;
+@media (max-width: 991px) {
+  .site-footer [class^="col-"] {
+    margin-bottom: 30px;
   }
-
-  .footer-distributed .footer-left,
-  .footer-distributed .footer-center,
-  .footer-distributed .footer-right {
-    display: block;
-    width: 100%;
-    margin-bottom: 40px;
+}
+@media (max-width: 767px) {
+  .site-footer {
+    padding-bottom: 0;
+  }
+  .site-footer .copyright-text,
+  .site-footer .social-icons {
     text-align: center;
   }
-
-  .footer-distributed .footer-center i {
-    margin-left: 0;
+}
+.social-icons {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+.social-icons li {
+  display: inline-block;
+  margin-bottom: 4px;
+}
+.social-icons li.title {
+  margin-right: 15px;
+  text-transform: uppercase;
+  color: #96a2b2;
+  font-weight: 700;
+  font-size: 13px;
+}
+.social-icons a {
+  background-color: #eceeef;
+  color: #818a91;
+  font-size: 16px;
+  display: inline-block;
+  line-height: 44px;
+  width: 44px;
+  height: 44px;
+  text-align: center;
+  margin-right: 8px;
+  border-radius: 100%;
+  -webkit-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+.social-icons a:active,
+.social-icons a:focus,
+.social-icons a:hover {
+  color: #fff;
+  background-color: #29aafe;
+}
+.social-icons.size-sm a {
+  line-height: 34px;
+  height: 34px;
+  width: 34px;
+  font-size: 14px;
+}
+.social-icons a.facebook:hover {
+  background-color: #3b5998;
+}
+.social-icons a.twitter:hover {
+  background-color: #00aced;
+}
+.social-icons a.linkedin:hover {
+  background-color: #007bb6;
+}
+.social-icons a.dribbble:hover {
+  background-color: #ea4c89;
+}
+@media (max-width: 767px) {
+  .social-icons li.title {
+    display: block;
+    margin-right: 0;
+    font-weight: 600;
   }
 }
 </style>

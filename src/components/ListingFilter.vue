@@ -8,9 +8,9 @@
         <div class="title">
           <button class="btn btn-block border-secondary round-left">
             <span class="px-4 letter-space text-secondary"
-              ><span class="invisible">#</span>Filter</span
+              ><span class="invisible">##</span>Filter</span
             >
-            <span class="pr-2 invisible">##.</span>
+            <span class="pr-2 invisible">##</span>
           </button>
         </div>
         <div
@@ -129,10 +129,12 @@ span.letter-space {
   #listing-filter-wrap {
     #listing-filter-nav {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr 1fr;
       div.title {
         margin-top: 5px;
         place-self: center;
+        grid-row: 1 / span 1;
+        grid-column: 1 / span 2;
         button {
           font-size: 16pt;
           border: none;
@@ -147,6 +149,8 @@ span.letter-space {
         margin-bottom: 20px;
         width: calc(100% - 40px);
         place-self: center;
+        grid-row: 4 / span 1;
+        grid-column: 1 / span 2;
         button {
           border-radius: 0px;
           border-bottom-left-radius: 20px;
@@ -159,10 +163,23 @@ span.letter-space {
 @media screen and (max-width: 600px) {
   #listing-filter-wrap {
     #listing-filter-nav {
+      grid-template-columns: 1fr;
       box-shadow: none !important;
+      div.title {
+        grid-row: 1 / span 1;
+        grid-column: 1 / span 2;
+      }
+      div.filter-select {
+        grid-column: 1 / span 1;
+        select {
+          border-radius: 30px !important;
+        }
+      }
       div.filter-btn {
+        grid-column: 1 / span 1;
+        grid-row: 6 / span 1;
         button {
-          border-radius: 6px;
+          border-radius: 30px;
         }
       }
     }

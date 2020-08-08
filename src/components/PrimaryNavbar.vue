@@ -1,7 +1,7 @@
 <template>
   <div>
     <header id="nav-wrap" class="navbar navbar-light border-bottom">
-      <section id="nav-logo" class="navbar-brand">
+      <section id="nav-logo">
         <span class="text-primary">brand</span
         ><span class="text-warning font-weight-bolder">LOGO</span>
       </section>
@@ -27,9 +27,10 @@
       <section id="nav-btn">
         <button
           type="submit"
-          class="btn btn-warning round-left round-right px-4"
+          class="btn btn-primary round-left round-right px-4"
         >
           Login
+          <span class="pl-2"><i class="fas fa-sign-in-alt"></i></span>
         </button>
       </section>
     </header>
@@ -102,6 +103,9 @@ input[type="search"] {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   place-items: center;
+  #nav-logo {
+    font-size: 20pt;
+  }
 }
 
 @media screen and (max-width: 1030px) {
