@@ -1,9 +1,9 @@
 <template>
   <div>
     <header id="nav-wrap" class="navbar navbar-light border-bottom">
-      <section id="nav-logo">
-        <span class="text-primary">brand</span
-        ><span class="text-warning font-weight-bolder">LOGO</span>
+      <section @click="$router.push('/')" id="nav-logo" style="cursor: pointer">
+        <span class="text-primary">brand</span>
+        <span class="text-warning font-weight-bolder">LOGO</span>
       </section>
       <section id="nav-search" class="custom-shadow round-left round-right">
         <div class="input-group">
@@ -14,11 +14,7 @@
             aria-label="Search"
           />
           <div class="input-group-append">
-            <button
-              class="btn border-0 round-right pr-4"
-              type="button"
-              id="button-addon2"
-            >
+            <button class="btn border-0 round-right pr-4" type="button" id="button-addon2">
               <i class="fas fa-search"></i>
             </button>
           </div>
@@ -26,11 +22,26 @@
       </section>
       <section id="nav-btn">
         <button
+          @click="$router.push('/Auth/Login')"
           type="submit"
           class="btn btn-primary round-left round-right px-4"
+          v-show="this.$route.path == '/Auth/Register'"
         >
-          Login
-          <span class="pl-2"><i class="fas fa-sign-in-alt"></i></span>
+          <span>Login</span>
+          <span class="pl-2">
+            <i class="fas fa-sign-in-alt"></i>
+          </span>
+        </button>
+        <button
+          @click="$router.push('/Auth/Register')"
+          type="submit"
+          class="btn btn-primary round-left round-right px-4"
+          v-show="this.$route.path == '/Auth/Login' || this.$route.path == '/'"
+        >
+          <span>Signup</span>
+          <span class="pl-2">
+            <i class="fas fa-sign-in-alt"></i>
+          </span>
         </button>
       </section>
     </header>
