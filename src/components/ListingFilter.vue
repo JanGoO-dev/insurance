@@ -6,8 +6,8 @@
       </div>
       <div id="listing-filter-nav" class="round container custom-shadow p-2">
         <div class="title">
-          <button class="btn btn-block border-info round-left">
-            <span class="px-4 letter-space text-secondary">
+          <button class="btn btn-block border-info round-left" disabled>
+            <span class="px-4 letter-space text-secondary text-info">
               <span class="invisible">##</span>Filter
             </span>
             <span class="pr-2 invisible">.</span>
