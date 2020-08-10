@@ -9,7 +9,7 @@
               disabled
               class="btn btn-outline-warning border-left-0 rounded-left-0 round-right pt-2 pb-1 pr-4 mb-3"
             >
-              <h6 class="text-primary">About</h6>
+              <h6 class="text-warning">About</h6>
             </button>
             <p class="text-justify text-secondary">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, est
@@ -25,7 +25,7 @@
               disabled
               class="btn btn-outline-warning border-left-0 rounded-left-0 round-right pt-2 pb-1 pr-4 mb-3"
             >
-              <h6 class="text-primary">Categories</h6>
+              <h6 class="text-warning">Categories</h6>
             </button>
             <ul class="footer-links">
               <li v-for="(link, index) in 5" :key="index">
@@ -39,18 +39,24 @@
               disabled
               class="btn btn-outline-warning border-left-0 rounded-left-0 round-right pt-2 pb-1 pr-4 mb-3"
             >
-              <h6 class="text-primary">Quick Links</h6>
+              <h6 class="text-warning">Quick Links</h6>
             </button>
             <ul class="footer-links">
-              <li><a class="text-secondary" href="#">About Us</a></li>
-              <li><a class="text-secondary" href="#">Contact Us</a></li>
+              <li>
+                <a class="text-secondary" href="#">About Us</a>
+              </li>
+              <li>
+                <a class="text-secondary" href="#">Contact Us</a>
+              </li>
               <li>
                 <a class="text-secondary" href="#">Contribute</a>
               </li>
               <li>
                 <a class="text-secondary" href="#">Privacy Policy</a>
               </li>
-              <li><a class="text-secondary" href="#">Sitemap</a></li>
+              <li>
+                <a class="text-secondary" href="#">Sitemap</a>
+              </li>
             </ul>
           </div>
         </div>
@@ -68,20 +74,24 @@
           <div class="col-md-4 col-sm-6 col-xs-12">
             <ul class="social-icons">
               <li>
-                <a class="facebook" href="#"
-                  ><i class="fab fa-facebook-f"></i
-                ></a>
+                <a class="facebook" href="#">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
               </li>
               <li>
-                <a class="twitter" href="#"><i class="fab fa-twitter"></i></a>
+                <a class="twitter" href="#">
+                  <i class="fab fa-twitter"></i>
+                </a>
               </li>
               <li>
-                <a class="dribbble" href="#"><i class="fab fa-dribbble"></i></a>
+                <a class="dribbble" href="#">
+                  <i class="fab fa-dribbble"></i>
+                </a>
               </li>
               <li>
-                <a class="linkedin" href="#"
-                  ><i class="fab fa-linkedin-in"></i
-                ></a>
+                <a class="linkedin" href="#">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
               </li>
             </ul>
           </div>

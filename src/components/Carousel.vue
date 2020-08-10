@@ -57,7 +57,7 @@ export default {};
 
 <style lang="scss" scoped>
 #carousel-wrap {
-  margin-top: -49px;
+  margin-top: -48px;
 }
 
 .tales {

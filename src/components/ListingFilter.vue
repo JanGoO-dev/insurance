@@ -7,17 +7,13 @@
       <div id="listing-filter-nav" class="round container custom-shadow p-2">
         <div class="title">
           <button class="btn btn-block border-info round-left">
-            <span class="px-4 letter-space text-secondary"
-              ><span class="invisible">##</span>Filter</span
-            >
-            <span class="pr-2 invisible">##</span>
+            <span class="px-4 letter-space text-secondary">
+              <span class="invisible">##</span>Filter
+            </span>
+            <span class="pr-2 invisible">.</span>
           </button>
         </div>
-        <div
-          v-for="(selector, index) in 4"
-          :key="index"
-          class="filter-select form-group mx-2"
-        >
+        <div v-for="(selector, index) in 4" :key="index" class="filter-select form-group mx-1">
           <select class="minimal border-info form-control rounded-0">
             <option selected>Choose...</option>
             <option>...</option>
@@ -26,7 +22,9 @@
         <div class="filter-btn">
           <button class="btn btn-warning btn-block round-right">
             <span class="px-4">Apply Filter</span>
-            <span class="pr-2"><i class="fas fa-filter"></i></span>
+            <span class="pr-2">
+              <i class="fas fa-filter"></i>
+            </span>
           </button>
         </div>
       </div>

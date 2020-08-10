@@ -79,13 +79,14 @@ export default {
   padding-bottom: 10px;
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
-  // border-left: solid 1px #ffc107;
-  // border-right: solid 1px #ffc107;
-  // border-bottom: solid 1px #ffc107;
+  // border-left: solid 1px rgba(0, 0, 0, 0.404);
+  // border-right: solid 1px rgba(0, 0, 0, 0.404);
+  // border-bottom: solid 1px rgba(0, 0, 0, 0.404);
   position: sticky;
   margin-top: 10px;
   z-index: 999;
-  background-color: #ffc107;
+  box-shadow: inset 0px 0px 69px -19px #0059ff34;
+  background-color: #fff;
   cursor: pointer;
   transition: ease-in-out 0.3s;
 }
