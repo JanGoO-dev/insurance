@@ -130,17 +130,22 @@ span.letter-space {
       grid-template-columns: 1fr 1fr;
       div.title {
         margin-top: 5px;
-        place-self: center;
+        place-self: stretch;
+        margin-left: 20px;
+        margin-right: 20px;
         grid-row: 1 / span 1;
         grid-column: 1 / span 2;
         button {
-          font-size: 16pt;
-          border: none;
+          font-size: 14pt;
           border-radius: 0px;
+          border-top-left-radius: 20px;
+          border-top-right-radius: 20px;
+          margin-top: 10px;
+          margin-bottom: 10px;
         }
       }
       div.filter-select {
-        padding: 5px 12px;
+        padding: 5px 17px;
       }
       div.filter-btn {
         margin-top: 10px;
@@ -150,9 +155,9 @@ span.letter-space {
         grid-row: 4 / span 1;
         grid-column: 1 / span 2;
         button {
-          border-radius: 0px;
-          border-bottom-left-radius: 20px;
-          border-bottom-right-radius: 20px;
+          border-radius: 0px !important;
+          border-bottom-left-radius: 20px !important;
+          border-bottom-right-radius: 20px !important;
         }
       }
     }
@@ -166,6 +171,9 @@ span.letter-space {
       div.title {
         grid-row: 1 / span 1;
         grid-column: 1 / span 2;
+        button {
+          border-radius: 30px !important;
+        }
       }
       div.filter-select {
         grid-column: 1 / span 1;
@@ -177,7 +185,7 @@ span.letter-space {
         grid-column: 1 / span 1;
         grid-row: 6 / span 1;
         button {
-          border-radius: 30px;
+          border-radius: 30px !important;
         }
       }
     }

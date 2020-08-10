@@ -23,7 +23,7 @@ export default {
     Carousel,
     ListingFilter,
     Card,
-    Footer,
+    Footer
   },
   data() {
     return {
@@ -33,10 +33,10 @@ export default {
         { link: "@/assets/card3.jpg" },
         { link: "@/assets/card4.jpg" },
         { link: "@/assets/card5.jpg" },
-        { link: "@/assets/card6.jpg" },
-      ],
+        { link: "@/assets/card6.jpg" }
+      ]
     };
-  },
+  }
 };
 </script>
 
