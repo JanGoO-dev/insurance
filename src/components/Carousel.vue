@@ -63,10 +63,18 @@ export default {};
 .tales {
   width: 100%;
 }
-.carousel-inner {
-  width: 100%;
-  max-height: 350px !important;
+.carousel .carousel-inner {
+  height: 350px;
 }
+.carousel-inner .carousel-item img {
+  min-height: 250px;
+  //prevent it from stretch in screen size < than 768px
+  object-fit: cover;
+}
+// .carousel-inner {
+//   width: 100%;
+//   max-height: 350px !important;
+// }
 .carousel-indicators .active {
   background-color: #ffc107;
 }
@@ -79,6 +87,13 @@ export default {};
   right: auto;
   padding: 20px;
   backdrop-filter: blur(2px);
+}
+
+@media (max-width: 768px) {
+  .carousel .carousel-inner {
+    //prevent it from adding a white space between carousel and container elements
+    height: auto;
+  }
 }
 
 @media screen and (min-width: 1600px) {
