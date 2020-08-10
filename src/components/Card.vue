@@ -1,21 +1,20 @@
 <template>
   <div id="card-wrap" class="container mt-5">
-    <div v-for="(card, index) in cards" :key="index" class="card m-3">
-      <img
-        class="card-img-top"
-        :src="require(`@/assets/${card.imageLink}`)"
-        alt="Card image cap"
-      />
+    <div v-for="(card, index) in planCards" :key="index" class="card m-3">
+      <img class="card-img-top" :src="require(`@/assets/${card.imageLink}`)" alt="Card image cap" />
       <div class="card-body">
-        <h5 class="card-title text-warning">Card title</h5>
-        <p class="card-text text-secondary">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
-        <a href="#" class="btn btn-warning round-right round-right px-4"
-          >Go somewhere
-          <span class="pl-3"><i class="fas fa-arrow-right"></i></span>
-        </a>
+        <h5 class="card-title text-warning">
+          {{ card.title }} -
+          <small>{{ card.id }}</small>
+        </h5>
+        <p v-if="card.text[0].length < 160" class="card-text text-secondary">{{ card.text[0] }}</p>
+        <p v-else class="card-text text-secondary">{{ card.text[0].substring(0, 160) + ' ...' }}</p>
+        <router-link :to="'/plan/' + card.id" class="btn btn-warning round-right round-right px-4">
+          See Plan Details
+          <span class="pl-3">
+            <i class="fas fa-arrow-right"></i>
+          </span>
+        </router-link>
       </div>
     </div>
   </div>
@@ -24,17 +23,25 @@
 <script>
 export default {
   data() {
-    return {
-      cards: [
-        { imageLink: "card1.jpg" },
-        { imageLink: "card2.jpg" },
-        { imageLink: "card3.jpg" },
-        { imageLink: "card4.jpg" },
-        { imageLink: "card5.jpg" },
-        { imageLink: "card6.jpg" },
-      ],
-    };
+    return {};
   },
+  computed: {
+    planCards() {
+      return this.$store.getters.getAllPlans;
+    }
+  },
+  mounted() {
+    window.addEventListener("onload", this.limitNumWords);
+  },
+  methods: {
+    limitNumWords() {
+      let elem = this.$el.querySelector(".limit-words");
+      let len = elem.innerText.length;
+      if (len > 20) {
+        elem.innerText = elem.innerText.substr(0, 20) + "...";
+      }
+    }
+  }
 };
 </script>
 

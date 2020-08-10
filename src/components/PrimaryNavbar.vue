@@ -6,7 +6,7 @@
         <span class="text-warning font-weight-bolder">LOGO</span>
       </section>
       <section id="nav-search" class="custom-shadow round-left round-right">
-        <div class="input-group">
+        <div class="input-group" v-show="this.$route.path == '/'">
           <input
             type="search"
             class="form-control round-left border-0 pl-4"
@@ -21,7 +21,7 @@
         </div>
       </section>
       <section id="nav-btn">
-        <button
+        <!-- <button
           @click="$router.push('/Auth/Login')"
           type="submit"
           class="btn btn-primary round-left round-right px-4"
@@ -31,17 +31,26 @@
           <span class="pl-2">
             <i class="fas fa-sign-in-alt"></i>
           </span>
+        </button>-->
+        <button
+          @click="$router.push('/Auth/Login')"
+          type="submit"
+          class="btn btn-outline-primary round-left pl-4 pr-3"
+        >
+          <!-- <span class="pr-2">
+            <i class="fas fa-sign-in-alt"></i>
+          </span>-->
+          <span>Login</span>
         </button>
         <button
           @click="$router.push('/Auth/Register')"
           type="submit"
-          class="btn btn-primary round-left round-right px-4"
-          v-show="this.$route.path == '/Auth/Login' || this.$route.path == '/'"
+          class="btn btn-outline-warning round-right pl-3 pr-4 ml-1"
         >
-          <span>Signup</span>
-          <span class="pl-2">
+          <span>Register</span>
+          <!-- <span class="pl-2">
             <i class="fas fa-sign-in-alt"></i>
-          </span>
+          </span>-->
         </button>
       </section>
     </header>
