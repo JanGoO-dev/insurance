@@ -114,4 +114,15 @@ button[type="submit"] {
     margin-bottom: 5px;
   }
 }
+
+@media screen and (max-width: 940px) {
+  .nav {
+    display: flex;
+    justify-content: center;
+    button[type="submit"] {
+      border-radius: 0px !important;
+      margin-top: 7px;
+    }
+  }
+}
 </style>

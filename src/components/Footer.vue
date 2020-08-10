@@ -263,4 +263,9 @@ export default {};
     font-weight: 600;
   }
 }
+@media screen and (max-width: 630px) {
+  .site-footer {
+    margin-bottom: 50px;
+  }
+}
 </style>

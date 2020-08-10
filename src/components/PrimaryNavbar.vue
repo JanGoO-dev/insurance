@@ -158,8 +158,23 @@ input[type="search"] {
       font-size: 14pt;
     }
     #nav-search {
+      background-color: #fff;
+      z-index: 999 !important;
+      opacity: 1;
+      border-top: solid 4px #ffc107;
+      border-radius: 0px !important;
       input[type="search"] {
         width: 200px;
+        border-radius: 0px !important;
+        background-color: #fff;
+        z-index: 999 !important;
+        opacity: 1;
+      }
+      button {
+        border-radius: 0px !important;
+        background-color: #fff;
+        z-index: 999 !important;
+        opacity: 1;
       }
       width: 100%;
       position: fixed;
@@ -171,6 +186,20 @@ input[type="search"] {
     #nav-btn {
       grid-row: 1 / span 1;
       grid-column: 2 / span 1;
+    }
+  }
+}
+
+@media screen and (max-width: 410px) {
+  #nav-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  #nav-btn {
+    button {
+      height: 30px;
+      padding: 0px;
     }
   }
 }
