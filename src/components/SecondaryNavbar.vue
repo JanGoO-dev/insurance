@@ -67,7 +67,7 @@ export default {
 #mini-nav-wrap::after {
   display: block;
   content: " ";
-  background-image: url("../assets/dot.svg");
+  background-image: url("../assets/up-and-down.svg");
   background-position: 50%;
   background-size: 22px 22px;
   background-repeat: no-repeat;
@@ -88,11 +88,11 @@ export default {
   box-shadow: inset 0px 0px 69px -19px #0059ff34;
   background-color: #fff;
   cursor: pointer;
-  transition: ease-in-out 0.3s;
+  transition: ease-in-out 0.2s;
 }
 
 header#mini-nav-wrap:hover:after {
-  background-size: 28px 28px;
+  background-size: 25px 25px;
 }
 
 button[type="submit"] {
