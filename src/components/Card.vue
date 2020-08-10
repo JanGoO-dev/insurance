@@ -66,7 +66,7 @@ export default {
 
 .card-img-top {
   width: 100%;
-  height: 15vw;
+  height: 20vw;
   object-fit: cover;
 }
 
@@ -79,6 +79,9 @@ export default {
 @media screen and (max-width: 1000px) {
   #card-wrap {
     grid-template-columns: 1fr;
+  }
+  .card-img-top {
+    min-block-size: 40vw;
   }
 }
 </style>
