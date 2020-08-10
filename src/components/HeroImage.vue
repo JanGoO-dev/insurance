@@ -32,6 +32,7 @@ div.button {
     width: 100%;
     height: 400px;
     // background-image: url("../assets/card1.jpg");
+    background-repeat: no-repeat;
     background-size: 100%;
     background-position: center;
     border-left: solid 10px #ffc107;
