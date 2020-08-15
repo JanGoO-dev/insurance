@@ -130,13 +130,16 @@ input[type="search"] {
 
 @media screen and (max-width: 1030px) {
   #nav-wrap {
-    height: 150px;
+    height: auto;
     grid-template-columns: repeat(2, 1fr);
     #nav-logo {
       grid-row: 1 / span 1;
       grid-column: 1 / span 1;
     }
     #nav-search {
+      input[type="search"] {
+        margin-top: 20px;
+      }
       width: 80%;
       grid-row: 2 / span 1;
       grid-column: 1 / span 2;
