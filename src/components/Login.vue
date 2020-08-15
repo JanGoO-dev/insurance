@@ -76,6 +76,12 @@
                   aria-hidden="true"
                 ></span>
               </button>
+              <div v-show="!isValid" class="error p-3 mb-5">
+                <small class="text-danger">
+                  Name, Email, Password are required.
+                  <br />Please provide every single information.
+                </small>
+              </div>
             </div>
           </div>
         </form>
@@ -97,8 +103,20 @@ export default {
       userFullName: "",
       userEmail: "",
       userPassword: "",
-      loading: false
+      loading: false,
+      isValid: true
     };
+  },
+  watch: {
+    userFullName() {
+      this.isValid = true;
+    },
+    userEmail() {
+      this.isValid = true;
+    },
+    userPassword() {
+      this.isValid = true;
+    }
   },
   methods: {
     login() {
@@ -108,11 +126,13 @@ export default {
         this.userEmail !== "" &&
         this.userPassword !== ""
       ) {
+        this.isValid = true;
         setTimeout(() => {
           this.loading = false;
           this.$router.push({ path: "/dashboard" });
         }, 5000);
       } else {
+        this.isValid = false;
         this.loading = false;
       }
     }
@@ -121,6 +141,15 @@ export default {
 </script>
 
 <style scoped>
+.error {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  border-radius: 8px;
+}
+
 @media screen and (max-width: 767px) {
   .form-v10-content .form-detail {
     flex-direction: column;
