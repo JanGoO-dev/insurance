@@ -19,7 +19,7 @@
     </div>
     <div class="page-content">
       <div class="form-v10-content">
-        <form class="form-detail" action="#" method="post" id="myform">
+        <form class="form-detail" action="#" method="#" id="myform">
           <div class="form-left">
             <img src="@/assets/login.svg" class="img-fluid mt-5" alt="Welcome Back SVG" />
           </div>
@@ -39,6 +39,7 @@
                 class="street"
                 id="street"
                 placeholder="Your Name Here (Optional)"
+                v-model="userFullName"
                 required
               />
             </div>
@@ -51,6 +52,7 @@
                 required
                 pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}"
                 placeholder="Your Email Here"
+                v-model="userEmail"
               />
             </div>
             <div class="form-row">
@@ -60,11 +62,20 @@
                 class="additional"
                 id="additional"
                 placeholder="Your Password Here"
+                v-model="userPassword"
                 required
               />
             </div>
             <div class="form-row-last">
-              <input type="submit" name="register" class="register" value="Login" />
+              <button @click="login" type="button" name="register" class="btn register py-2">
+                <span v-if="!loading">Login</span>
+                <span
+                  class="spinner-border spinner-border-sm"
+                  v-else
+                  role="status"
+                  aria-hidden="true"
+                ></span>
+              </button>
             </div>
           </div>
         </form>
@@ -80,7 +91,33 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      userFullName: "",
+      userEmail: "",
+      userPassword: "",
+      loading: false
+    };
+  },
+  methods: {
+    login() {
+      this.loading = true;
+      if (
+        this.userFullName !== "" &&
+        this.userEmail !== "" &&
+        this.userPassword !== ""
+      ) {
+        setTimeout(() => {
+          this.loading = false;
+          this.$router.push({ path: "/dashboard" });
+        }, 5000);
+      } else {
+        this.loading = false;
+      }
+    }
+  }
+};
 </script>
 
 <style scoped>

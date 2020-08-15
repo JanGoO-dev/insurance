@@ -19,7 +19,7 @@
     </div>
     <div class="page-content">
       <div class="form-v10-content">
-        <form class="form-detail" action="#" method="post" id="myform">
+        <form class="form-detail" action="#" method="#" id="myform">
           <div class="form-left">
             <h2 class="text-warning mt-5">
               <button
@@ -29,12 +29,12 @@
                 <span class="h4">General Infomation</span>
               </button>
             </h2>
-            <div class="form-row">
-              <select name="title">
-                <option class="option" value="title">Title</option>
-                <option class="option" value="businessman">Businessman</option>
-                <option class="option" value="reporter">Reporter</option>
-                <option class="option" value="secretary">Secretary</option>
+            <div class="form-row form-group">
+              <select v-model="jobTitle">
+                <option>Job Title</option>
+                <option>Businessman</option>
+                <option>Reporter</option>
+                <option>Secretary</option>
               </select>
               <span class="select-btn">
                 <i class="zmdi zmdi-chevron-down"></i>
@@ -48,6 +48,7 @@
                   id="first_name"
                   class="input-text"
                   placeholder="First Name"
+                  v-model="firstName"
                   required
                 />
               </div>
@@ -58,12 +59,13 @@
                   id="last_name"
                   class="input-text"
                   placeholder="Last Name"
+                  v-model="lastName"
                   required
                 />
               </div>
             </div>
             <div class="form-row">
-              <select name="position">
+              <select v-model="position" name="position">
                 <option value="position">Position</option>
                 <option value="director">Director</option>
                 <option value="manager">Manager</option>
@@ -80,6 +82,7 @@
                 class="company"
                 id="company"
                 placeholder="Company"
+                v-model="companyName"
                 required
               />
             </div>
@@ -91,11 +94,12 @@
                   class="business"
                   id="business"
                   placeholder="Business Arena"
+                  v-model="businessArena"
                   required
                 />
               </div>
               <div class="form-row form-row-4">
-                <select name="employees">
+                <select v-model="employees" name="employees">
                   <option value="employees">Employees</option>
                   <option value="trainee">Trainee</option>
                   <option value="colleague">Colleague</option>
@@ -123,6 +127,7 @@
                 class="street"
                 id="street"
                 placeholder="Street + Nr"
+                v-model="street"
                 required
               />
             </div>
@@ -133,15 +138,24 @@
                 class="additional"
                 id="additional"
                 placeholder="Additional Information"
+                v-model="additionalInfo"
                 required
               />
             </div>
             <div class="form-group">
               <div class="form-row form-row-1">
-                <input type="text" name="zip" class="zip" id="zip" placeholder="Zip Code" required />
+                <input
+                  v-model="zipCode"
+                  type="text"
+                  name="zip"
+                  class="zip"
+                  id="zip"
+                  placeholder="Zip Code"
+                  required
+                />
               </div>
               <div class="form-row form-row-2">
-                <select name="place">
+                <select v-model="place" name="place">
                   <option value="place">Place</option>
                   <option value="Street">Street</option>
                   <option value="District">District</option>
@@ -153,7 +167,7 @@
               </div>
             </div>
             <div class="form-row">
-              <select name="country">
+              <select v-model="country" name="country">
                 <option value="country">Country</option>
                 <option value="Vietnam">Vietnam</option>
                 <option value="Malaysia">Malaysia</option>
@@ -165,7 +179,15 @@
             </div>
             <div class="form-group">
               <div class="form-row form-row-1">
-                <input type="text" name="code" class="code" id="code" placeholder="Code +" required />
+                <input
+                  v-model="countryCode"
+                  type="text"
+                  name="code"
+                  class="code"
+                  id="code"
+                  placeholder="Code +"
+                  required
+                />
               </div>
               <div class="form-row form-row-2">
                 <input
@@ -174,6 +196,7 @@
                   class="phone"
                   id="phone"
                   placeholder="Phone Number"
+                  v-model="phone"
                   required
                 />
               </div>
@@ -187,6 +210,7 @@
                 required
                 pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}"
                 placeholder="Your Email"
+                v-model="email"
               />
             </div>
             <div class="form-checkbox">
@@ -196,12 +220,25 @@
                   <a href="#" class="text">Terms and Conditions</a> of your
                   site.
                 </p>
-                <input type="checkbox" name="checkbox" />
+                <input v-model="acceptTermsConditions" type="checkbox" name="checkbox" />
                 <span class="checkmark"></span>
               </label>
             </div>
             <div class="form-row-last">
-              <input type="submit" name="register" class="register" value="Register" />
+              <button @click="register" type="button" name="register" class="btn register py-2">
+                <span v-if="!loading">Register</span>
+                <span
+                  class="spinner-border spinner-border-sm"
+                  v-else
+                  role="status"
+                  aria-hidden="true"
+                ></span>
+              </button>
+              <div v-show="registered">
+                <small
+                  class="text-white py-2"
+                >Accound created. You are being redirected to Login Page</small>
+              </div>
             </div>
           </div>
         </form>
@@ -217,7 +254,42 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      loading: false,
+      registered: false,
+      jobTitle: "Job Title",
+      firstName: "",
+      lastName: "",
+      position: "Position",
+      companyName: "",
+      businessArena: "",
+      employees: "Employees",
+      street: "",
+      additionalInfo: "",
+      zipCode: "",
+      place: "Place",
+      countery: "Country",
+      countryCode: "",
+      phone: "",
+      email: "",
+      acceptTermsConditions: false
+    };
+  },
+  methods: {
+    register() {
+      this.loading = true;
+      setTimeout(() => {
+        this.registered = true;
+        this.loading = false;
+      }, 600);
+      setTimeout(() => {
+        this.$router.push({ path: "/Auth/Login" });
+      }, 3000);
+    }
+  }
+};
 </script>
 
 <style>

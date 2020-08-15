@@ -4,6 +4,7 @@ import Home from "../views/Home.vue";
 import AuthRegister from "../views/AuthRegister";
 import AuthLogin from "../views/AuthLogin";
 import PlanDetails from "../views/PlanDetails";
+import Dashboard from "../views/Dashboard";
 
 Vue.use(VueRouter);
 
@@ -27,6 +28,11 @@ const routes = [
     path: "/plan/:id",
     name: "PlanDetails",
     component: PlanDetails,
+  },
+  {
+    path: "/dashboard",
+    name: "Dashboard",
+    component: Dashboard,
   },
 ];
 
