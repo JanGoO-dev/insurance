@@ -81,6 +81,9 @@ export default {
   padding: 8px;
   cursor: pointer;
   text-decoration: none;
+  img {
+    border-radius: 100%;
+  }
 }
 .profile:hover {
   background-color: rgb(247, 247, 247);

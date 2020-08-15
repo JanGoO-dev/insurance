@@ -102,14 +102,14 @@ export default {
   background-color: white;
   padding: 60px;
   box-shadow: 0px 0px 16px #00000030;
-  border-radius: 16px;
+  border-radius: 10px;
 }
 
 .hangburger {
   position: absolute;
   top: 10px;
   right: 40px;
-  font-size: 36px;
+  font-size: 26px;
   margin-left: 50px;
   cursor: pointer;
   color: #2271dd;
@@ -154,8 +154,8 @@ export default {
 .sidenav .closebtn {
   position: absolute;
   top: 0;
-  right: 25px;
-  font-size: 36px;
+  right: 10px;
+  font-size: 26px;
   margin-left: 50px;
 }
 
