@@ -36,6 +36,7 @@
           @click="$router.push('/Auth/Login')"
           type="submit"
           class="btn btn-outline-primary round-left pl-4 pr-3"
+          v-show="!isDashboard"
         >
           <!-- <span class="pr-2">
             <i class="fas fa-sign-in-alt"></i>
@@ -46,22 +47,45 @@
           @click="$router.push('/Auth/Register')"
           type="submit"
           class="btn btn-outline-warning round-right pl-3 pr-4 ml-1"
+          v-show="!isDashboard"
         >
           <span>Register</span>
           <!-- <span class="pl-2">
             <i class="fas fa-sign-in-alt"></i>
           </span>-->
         </button>
+        <div v-show="isDashboard">
+          <router-link to="/" class="profile d-flex flex-row align-items-center">
+            <span class="text-warning mr-3">User Name</span>
+            <img src="@/assets/avatar.svg" width="40" height="40" alt="Avatar SVG" />
+          </router-link>
+        </div>
       </section>
     </header>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    isDashboard() {
+      return this.$route.path === "/dashboard";
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
+.profile {
+  border-radius: 6px;
+  padding: 8px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.profile:hover {
+  background-color: rgb(247, 247, 247);
+}
+
 .round-left {
   -webkit-border-top-left-radius: 354px;
   -webkit-border-bottom-left-radius: 354px;
