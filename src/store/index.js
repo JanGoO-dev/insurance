@@ -75,7 +75,7 @@ export default new Vuex.Store({
     ],
     user: {
       id: 13123,
-      name: "Demo User",
+      name: "Asad Ali Bhutta",
     },
   },
   getters: {
