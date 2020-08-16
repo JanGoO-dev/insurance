@@ -8,9 +8,11 @@
         <i class="fas fa-chevron-left"></i>
       </a>
       <div class="mt-5"></div>
-      <a
+      <router-link
+        to="/dashboard"
         v-for="(sideLink, index) in 10"
         :key="index"
+        :class="{ 'pl150': isSmall }"
         class="btn btn-outline-primary round-right border-0 mr-5 my-3 text-left"
         href="#"
       >
@@ -18,7 +20,7 @@
           <i class="fas fa-th-large"></i>
         </span>
         <span v-show="isOpen">Lorem - {{ index + 1 }}</span>
-      </a>
+      </router-link>
     </div>
     <div id="main">
       <PrimaryNavbar></PrimaryNavbar>
@@ -34,7 +36,8 @@ import PrimaryNavbar from "../components/PrimaryNavbar";
 export default {
   data() {
     return {
-      isOpen: false
+      isOpen: false,
+      isSmall: false
     };
   },
   components: {
@@ -50,6 +53,7 @@ export default {
           document.getElementById("mySidenav").style.width = "260px";
           document.getElementById("main").style.marginLeft = "260px";
         } else {
+          this.isSmall = true;
           document.getElementById("mySidenav").style.width = "100%";
         }
         // document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
@@ -63,7 +67,8 @@ export default {
           document.getElementById("mySidenav").style.width = "100px";
           document.getElementById("main").style.marginLeft = "100px";
         } else {
-          document.getElementById("mySidenav").style.width = "0";
+          this.isSmall = false;
+          document.getElementById("mySidenav").style.width = "62px";
         }
         // document.body.style.backgroundColor = "white";
         // document.body.style.filter = "grayscale(0)";
@@ -74,6 +79,10 @@ export default {
 </script>
 
 <style scoped>
+.pl150 {
+  padding-left: 150px !important;
+}
+
 .round-left {
   -webkit-border-top-left-radius: 354px;
   -webkit-border-bottom-left-radius: 354px;
@@ -94,7 +103,7 @@ export default {
 
 #dashboard-wrap {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 40px;
 }
 
@@ -107,9 +116,9 @@ export default {
 
 .hangburger {
   position: absolute;
-  top: 10px;
+  top: 20px;
   right: 40px;
-  font-size: 26px;
+  font-size: 36px;
   margin-left: 50px;
   cursor: pointer;
   color: #2271dd;
@@ -153,9 +162,9 @@ export default {
 /* Position and style the close button (top right corner) */
 .sidenav .closebtn {
   position: absolute;
-  top: 0;
-  right: 10px;
-  font-size: 26px;
+  top: 10px;
+  right: 20px;
+  font-size: 36px;
   margin-left: 50px;
 }
 
@@ -178,12 +187,18 @@ export default {
 }
 
 @media screen and (max-width: 729px) {
-  #main {
-    margin-left: 10px;
-    margin-right: 10px;
+  #media {
+    margin-left: 20px;
+    margin-right: 20px;
   }
   .sidenav {
-    width: 0px !important;
+    width: 62px;
+  }
+  .sidenav a {
+    margin-left: -18px;
+  }
+  .hangburger {
+    right: 19px;
   }
 }
 </style>
