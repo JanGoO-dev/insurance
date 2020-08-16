@@ -13,7 +13,7 @@
         v-for="(sideLink, index) in 10"
         :key="index"
         :class="{ 'pl150': isSmall }"
-        class="btn btn-outline-primary round-right border-0 mr-5 my-3 text-left"
+        class="btn btn-outline-primary round-right border-0 mr-5 my-2 py-3 text-left"
         href="#"
       >
         <span class="ml-2 pr-4">
@@ -103,9 +103,27 @@ export default {
 
 #dashboard-wrap {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 2fr));
   row-gap: 40px;
-  column-gap: 10px;
+  column-gap: 20px;
+}
+
+@media screen and (max-width: 1250px) {
+  #dashboard-wrap {
+    grid-template-columns: repeat(auto-fill, minmax(330px, 2fr));
+  }
+}
+
+@media screen and (max-width: 950px) {
+  #dashboard-wrap {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  }
+}
+
+@media screen and (max-width: 478px) {
+  #dashboard-wrap {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
 }
 
 #dashboard-wrap > div {
