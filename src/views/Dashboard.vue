@@ -109,7 +109,7 @@ export default {
 
 #dashboard-wrap > div {
   background-color: white;
-  padding: 60px;
+  padding: 20px;
   box-shadow: 0px 0px 16px #00000030;
   border-radius: 10px;
 }
@@ -173,7 +173,7 @@ export default {
   margin-left: 100px;
   margin-right: 20px;
   transition: margin-left 0.5s;
-  padding: 0px 10px 0px 20px;
+  padding: 0px 0px 0px 0px;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
