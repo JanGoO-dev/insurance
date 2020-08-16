@@ -32,7 +32,20 @@ export default {
         { color: "#DB162F" },
         { color: "#EEBA0B" },
         { color: "#ffa5b0" },
-        { color: "#6a197d" }
+        { color: "#6a197d" },
+        { color: "#1C2833" },
+        { color: "#515A5A" },
+        { color: "#B3B6B7" },
+        { color: "#BA4A00" },
+        { color: "#CA6F1E" },
+        { color: "#F39C12" },
+        { color: "#28B463" },
+        { color: "#138D75" },
+        { color: "#2E86C1" },
+        { color: "#1F618D" },
+        { color: "#8E44AD" },
+        { color: "#CB4335" },
+        { color: "#A93226" }
       ],
       index: 0
     };
@@ -50,7 +63,7 @@ export default {
   },
   methods: {
     toggleColor() {
-      if (this.index < 6) {
+      if (this.index < 19) {
         this.index = this.index + 1;
       } else {
         this.index = 0;
