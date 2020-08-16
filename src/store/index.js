@@ -73,6 +73,10 @@ export default new Vuex.Store({
         ],
       },
     ],
+    user: {
+      id: 13123,
+      name: "Demo User",
+    },
   },
   getters: {
     getAllPlans: (state) => {
@@ -82,6 +86,9 @@ export default new Vuex.Store({
       return state.plans.find((plan) => {
         return plan.id === id;
       });
+    },
+    user: (state) => {
+      return state.user;
     },
   },
   mutations: {},

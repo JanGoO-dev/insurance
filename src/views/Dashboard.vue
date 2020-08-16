@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div @mouseenter="openNav" id="mySidenav" class="sidenav">
+    <div @mouseenter="openNav" id="mySidenav" class="sidenav bg-dark">
       <span v-show="!isOpen" @click="openNav" class="hangburger">
         <i class="fas fa-chevron-right"></i>
       </span>
@@ -23,7 +23,8 @@
       </router-link>
     </div>
     <div id="main">
-      <PrimaryNavbar></PrimaryNavbar>
+      <PrimaryNavbar class="bg-dark"></PrimaryNavbar>
+      <h1 class="text-center mt-3 text-secondary h3 font-weight-bold">Dashboard</h1>
       <div id="dashboard-wrap" class="m-5">
         <div v-for="(panel, index) in 18" :key="index">Panel - {{ index + 1 }}</div>
       </div>
@@ -102,10 +103,11 @@ export default {
 }
 
 #dashboard-wrap {
+  margin-top: 20px !important;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 2fr));
+  grid-template-columns: repeat(auto-fill, minmax(400px, 2fr));
   row-gap: 40px;
-  column-gap: 20px;
+  column-gap: 30px;
 }
 
 @media screen and (max-width: 1250px) {
@@ -129,7 +131,7 @@ export default {
 #dashboard-wrap > div {
   background-color: white;
   padding: 20px;
-  box-shadow: 0px 0px 16px #00000030;
+  box-shadow: 0px 0px 26px #00000010;
   border-radius: 10px;
 }
 

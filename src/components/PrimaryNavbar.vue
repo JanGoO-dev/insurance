@@ -36,7 +36,7 @@
           @click="$router.push('/Auth/Login')"
           type="submit"
           class="btn btn-outline-primary round-left pl-4 pr-3"
-          v-show="!isDashboard"
+          v-show="!profileVisible"
         >
           <!-- <span class="pr-2">
             <i class="fas fa-sign-in-alt"></i>
@@ -47,16 +47,27 @@
           @click="$router.push('/Auth/Register')"
           type="submit"
           class="btn btn-outline-warning round-right pl-3 pr-4 ml-1"
-          v-show="!isDashboard"
+          v-show="!profileVisible"
         >
           <span>Register</span>
           <!-- <span class="pl-2">
             <i class="fas fa-sign-in-alt"></i>
           </span>-->
         </button>
-        <div v-show="isDashboard">
-          <router-link to="/" class="profile d-flex flex-row align-items-center">
-            <span class="text-warning mr-3">User Name</span>
+        <div v-show="this.$route.path === '/dashboard'">
+          <router-link
+            :to="'/Profile/' + user.name"
+            class="profile d-flex flex-row align-items-center"
+          >
+            <span class="text-warning mr-3">{{ user.name }}</span>
+            <img src="@/assets/avatar.svg" width="40" height="40" alt="Avatar SVG" />
+          </router-link>
+        </div>
+        <div v-show="this.$route.name === 'User Profile Page'">
+          <router-link
+            :to="'/Profile/' + user.name"
+            class="profile d-flex flex-row align-items-center"
+          >
             <img src="@/assets/avatar.svg" width="40" height="40" alt="Avatar SVG" />
           </router-link>
         </div>
@@ -67,9 +78,18 @@
 
 <script>
 export default {
+  data() {
+    return {};
+  },
   computed: {
-    isDashboard() {
-      return this.$route.path === "/dashboard";
+    profileVisible() {
+      return (
+        this.$route.path === "/dashboard" ||
+        this.$route.name === "User Profile Page"
+      );
+    },
+    user() {
+      return this.$store.getters.user;
     }
   }
 };
@@ -86,7 +106,7 @@ export default {
   }
 }
 .profile:hover {
-  background-color: rgb(247, 247, 247);
+  background-color: rgb(207, 207, 207);
 }
 
 .round-left {

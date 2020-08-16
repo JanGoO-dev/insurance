@@ -5,6 +5,7 @@ import AuthRegister from "../views/AuthRegister";
 import AuthLogin from "../views/AuthLogin";
 import PlanDetails from "../views/PlanDetails";
 import Dashboard from "../views/Dashboard";
+import Profile from "../views/Profile";
 
 Vue.use(VueRouter);
 
@@ -33,6 +34,11 @@ const routes = [
     path: "/dashboard",
     name: "Dashboard",
     component: Dashboard,
+  },
+  {
+    path: "/profile/:user",
+    name: "User Profile Page",
+    component: Profile,
   },
 ];
 
