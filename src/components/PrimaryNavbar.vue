@@ -55,21 +55,45 @@
           </span>-->
         </button>
         <div v-show="this.$route.path === '/dashboard'">
-          <router-link
-            :to="'/Profile/' + user.name"
-            class="profile d-flex flex-row align-items-center"
-          >
+          <div @click="toggleContext" class="profile d-flex flex-row align-items-center">
             <span class="text-warning mr-3">{{ user.name }}</span>
             <img src="@/assets/avatar.svg" width="40" height="40" alt="Avatar SVG" />
-          </router-link>
+          </div>
+          <div v-show="contextVisible" class="context list-group bg-light">
+            <span
+              v-for="(link, index) in contextDashboard"
+              :key="index"
+              type="button"
+              class="context-link pr-5 list-group-item list-group-item-action text-dark"
+            >
+              <span class="pr-5" @click="moveTo(link.href)">
+                <span class="pr-3">
+                  <i class="fas" :class="link.icon"></i>
+                </span>
+                <span>{{ link.title }}</span>
+              </span>
+            </span>
+          </div>
         </div>
         <div v-show="this.$route.name === 'User Profile Page'">
-          <router-link
-            :to="'/Profile/' + user.name"
-            class="profile d-flex flex-row align-items-center"
-          >
+          <div @click="toggleContext" class="profile d-flex flex-row align-items-center">
             <img src="@/assets/avatar.svg" width="40" height="40" alt="Avatar SVG" />
-          </router-link>
+          </div>
+          <div v-show="contextVisible" class="context list-group bg-light">
+            <span
+              v-for="(link, index) in contextProfile"
+              :key="index"
+              type="button"
+              class="context-link pr-5 list-group-item list-group-item-action text-dark"
+            >
+              <span class="pr-5" @click="moveTo(link.href)">
+                <span class="pr-3">
+                  <i class="fas" :class="link.icon"></i>
+                </span>
+                <span>{{ link.title }}</span>
+              </span>
+            </span>
+          </div>
         </div>
       </section>
     </header>
@@ -79,7 +103,20 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      contextVisible: false,
+      links: [
+        {
+          title: "Profile",
+          icon: "fa-user",
+          href: "/Profile/"
+        },
+        { title: "Dashboard", icon: "fa-th-large", href: "/dashboard" },
+        { title: "Home Page", icon: "fa-home", href: "/" },
+        { title: "Settings", icon: "fa-cog", href: "/" },
+        { title: "Log Out", icon: "fa-sign-out-alt", href: "/" }
+      ]
+    };
   },
   computed: {
     profileVisible() {
@@ -90,6 +127,24 @@ export default {
     },
     user() {
       return this.$store.getters.user;
+    },
+    contextProfile() {
+      return this.links.filter(e => e.title !== "Profile");
+    },
+    contextDashboard() {
+      return this.links.filter(e => e.title !== "Dashboard");
+    }
+  },
+  methods: {
+    toggleContext() {
+      this.contextVisible = !this.contextVisible;
+    },
+    moveTo(href) {
+      if (href === "/Profile/") {
+        this.$router.push(href + this.user.name);
+      } else {
+        this.$router.push(href);
+      }
     }
   }
 };
@@ -104,9 +159,21 @@ export default {
   img {
     border-radius: 100%;
   }
+  position: relative;
 }
 .profile:hover {
   background-color: rgba(91, 189, 255, 0.082);
+}
+.context {
+  position: absolute;
+  top: 70px;
+  right: 200px;
+  z-index: 99;
+  box-shadow: 10px 10px 40px #00000050;
+  .context-link:hover {
+    color: white !important;
+    background: black;
+  }
 }
 
 .round-left {

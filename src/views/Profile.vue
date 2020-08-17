@@ -86,7 +86,7 @@ export default {
     position: relative;
     box-shadow: 0px 20px 60px #00000040;
     .profile-bg {
-      height: 200px;
+      height: 280px;
       border-bottom: solid 8px #ffc107;
     }
     .profile-pic {
@@ -96,14 +96,14 @@ export default {
       background-color: gray;
       border-radius: 100%;
       position: absolute;
-      top: 120px;
-      border: solid 10px #fff;
+      top: 170px;
+      border: solid 10px rgba(255, 255, 255, 1);
       box-shadow: 0px 0px 40px #00000050;
     }
     .profile-name {
       align-self: center;
       position: absolute;
-      top: 40px;
+      top: 90px;
       font-size: 1.2em;
       text-align: center;
       background-color: #ffc107;
@@ -117,7 +117,7 @@ export default {
   }
   .color-change {
     position: absolute;
-    top: 8rem;
+    top: 1.6rem;
     right: 1rem;
     color: white;
     border: solid 6px white;
