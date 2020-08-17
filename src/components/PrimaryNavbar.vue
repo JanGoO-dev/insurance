@@ -175,6 +175,17 @@ export default {
         }
       }
     }
+  },
+  mounted() {
+    window.addEventListener("click", e => {
+      var container = document.querySelector("#nav-btn");
+      // var container2 = document.querySelector(".trigger2");
+
+      // if the target of the click isn't the container nor a descendant of the container
+      if (!container.contains(e.target)) {
+        this.contextVisible = false;
+      }
+    });
   }
 };
 </script>
