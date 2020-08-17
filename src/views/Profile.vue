@@ -12,16 +12,21 @@
       <button
         @click="toggleColor"
         class="color-change btn btn-transparent"
-        :style="`backgroundColor: ${ curColor }`"
+        :style="`backgroundColor: ${ nxtColor }`"
+        v-show="$store.getters.get_editable"
       >
         <span style="visibility: hidden">$</span>
       </button>
     </div>
+    <UserProfileData></UserProfileData>
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
-import PrimaryNavbar from "../components/PrimaryNavbar.vue";
+import PrimaryNavbar from "../components/PrimaryNavbar";
+import UserProfileData from "../components/UserProfileData";
+import Footer from "../components/Footer";
 export default {
   data() {
     return {
@@ -51,7 +56,9 @@ export default {
     };
   },
   components: {
-    PrimaryNavbar
+    PrimaryNavbar,
+    UserProfileData,
+    Footer
   },
   computed: {
     user() {
@@ -59,6 +66,13 @@ export default {
     },
     curColor() {
       return this.colors[this.index].color;
+    },
+    nxtColor() {
+      if (this.index === 19) {
+        return this.colors[0].color;
+      } else {
+        return this.colors[this.index + 1].color;
+      }
     }
   },
   methods: {
@@ -80,6 +94,7 @@ export default {
   width: 100%;
   justify-items: stretch;
   position: relative;
+  margin-bottom: 140px;
   #profile-showcase {
     display: flex;
     flex-direction: column;

@@ -77,6 +77,7 @@ export default new Vuex.Store({
       id: 13123,
       name: "Muhammad Bin Shahzad",
     },
+    editable: false,
   },
   getters: {
     getAllPlans: (state) => {
@@ -90,8 +91,15 @@ export default new Vuex.Store({
     user: (state) => {
       return state.user;
     },
+    get_editable: (state) => {
+      return state.editable;
+    },
   },
-  mutations: {},
+  mutations: {
+    set_editable(state) {
+      state.editable = !state.editable;
+    },
+  },
   actions: {},
   modules: {},
 });

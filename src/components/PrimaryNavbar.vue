@@ -80,7 +80,7 @@
           <div @click="toggleContext" class="profile d-flex flex-row align-items-center">
             <img src="@/assets/avatar.svg" width="40" height="40" alt="Avatar SVG" />
           </div>
-          <div v-show="contextVisible" class="context list-group bg-light">
+          <div v-show="contextVisible" class="context edit list-group bg-light">
             <span
               v-for="(link, index) in contextProfile"
               :key="index"
@@ -115,9 +115,10 @@ export default {
         },
         { title: "Dashboard", icon: "fa-th-large", href: "/dashboard" },
         { title: "Home Page", icon: "fa-home", href: "/" },
-        { title: "Settings", icon: "fa-cog", href: "/" },
-        { title: "Log Out", icon: "fa-sign-out-alt", href: "/" }
-      ]
+        { title: "Log Out", icon: "fa-sign-out-alt", href: "/" },
+        { title: "Settings", icon: "fa-cog", href: "#" }
+      ],
+      mode: false
     };
   },
   computed: {
@@ -134,7 +135,9 @@ export default {
       return this.links.filter(e => e.title !== "Profile");
     },
     contextDashboard() {
-      return this.links.filter(e => e.title !== "Dashboard");
+      return this.links.filter(
+        e => e.title !== "Dashboard" && e.title !== "Settings"
+      );
     }
   },
   methods: {
@@ -142,10 +145,34 @@ export default {
       this.contextVisible = !this.contextVisible;
     },
     moveTo(href) {
-      if (href === "/Profile/") {
+      if (href === "#") {
+        console.log(this.links[this.links.length - 1].href);
+        if (this.links[this.links.length - 1] !== "$") {
+          if (this.mode) {
+            this.links.push({
+              title: "View Mode",
+              icon: "fa-eye",
+              href: "$"
+            });
+          } else {
+            this.links.push({
+              title: "Edit Mode",
+              icon: "fa-pen-nib",
+              href: "$"
+            });
+          }
+        }
+      } else if (href === "/Profile/") {
         this.$router.push(href + this.user.name);
       } else {
-        this.$router.push(href);
+        if (href === "$") {
+          this.$store.commit("set_editable");
+          this.links.pop();
+          this.mode = true;
+          this.contextVisible = false;
+        } else {
+          this.$router.push(href);
+        }
       }
     }
   }
