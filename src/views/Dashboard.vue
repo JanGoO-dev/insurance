@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div @mouseenter="openNav" id="mySidenav" class="sidenav bg-dark">
+    <div @mouseenter="openNav" id="mySidenav" class="sidenav bg-side">
       <span v-show="!isOpen" @click="openNav" class="hangburger">
         <i class="fas fa-chevron-right"></i>
       </span>
@@ -13,7 +13,7 @@
         v-for="(sideLink, index) in 10"
         :key="index"
         :class="{ 'pl150': isSmall }"
-        class="btn btn-outline-primary round-right border-0 mr-5 my-2 py-3 text-left"
+        class="btn btn-outline-primary round-right border-0 mr-5 my-2 py-3 text-left text-light"
         href="#"
       >
         <span class="ml-2 pr-4">
@@ -23,10 +23,10 @@
       </router-link>
     </div>
     <div id="main">
-      <PrimaryNavbar class="bg-dark"></PrimaryNavbar>
+      <PrimaryNavbar class="bg-nav"></PrimaryNavbar>
       <h1 class="text-center mt-3 text-secondary h3 font-weight-bold">Dashboard</h1>
       <div id="dashboard-wrap" class="m-5">
-        <div v-for="(panel, index) in 18" :key="index">Panel - {{ index + 1 }}</div>
+        <div v-for="(panel, index) in 18" :key="index" class="bg-white">Panel - {{ index + 1 }}</div>
       </div>
     </div>
   </div>
@@ -80,6 +80,19 @@ export default {
 </script>
 
 <style scoped>
+.bg-nav {
+  /* background-color: #9921e8;
+  background-image: linear-gradient(315deg, #9921e8 0%, #5f72be 74%); */
+}
+.bg-side {
+  /* background-color: #485461;
+  background-image: linear-gradient(315deg, #485461 0%, #28313b 74%); */
+  background-color: #29539b;
+  background-image: linear-gradient(315deg, #29539b 0%, #1e3b70 74%);
+}
+.shadow {
+  /* box-shadow: 0px 10px 50px #000; */
+}
 .pl150 {
   padding-left: 150px !important;
 }
@@ -131,7 +144,7 @@ export default {
 #dashboard-wrap > div {
   background-color: white;
   padding: 20px;
-  box-shadow: 0px 0px 26px #00000010;
+  box-shadow: 0px 0px 26px #00000020;
   border-radius: 10px;
 }
 
@@ -162,7 +175,7 @@ export default {
   padding-top: 60px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
   /* border-right: solid 4px #ffc107; */
-  box-shadow: 0px 0px 20px #000;
+  /* box-shadow: 0px 80px 20px #000; */
 }
 
 /* The navigation menu links */
@@ -192,7 +205,7 @@ export default {
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #main {
   margin-left: 100px;
-  margin-right: 20px;
+  /* margin-right: 20px; */
   transition: margin-left 0.5s;
   padding: 0px 0px 0px 0px;
 }

@@ -106,7 +106,7 @@ export default {
   }
 }
 .profile:hover {
-  background-color: rgb(207, 207, 207);
+  background-color: rgba(91, 189, 255, 0.082);
 }
 
 .round-left {
