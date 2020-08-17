@@ -65,8 +65,9 @@
               :key="index"
               type="button"
               class="context-link pr-5 list-group-item list-group-item-action text-dark"
+              @click="moveTo(link.href)"
             >
-              <span class="pr-5" @click="moveTo(link.href)">
+              <span class="pr-5">
                 <span class="pr-3">
                   <i class="fas" :class="link.icon"></i>
                 </span>
@@ -85,8 +86,9 @@
               :key="index"
               type="button"
               class="context-link pr-5 list-group-item list-group-item-action text-dark"
+              @click="moveTo(link.href)"
             >
-              <span class="pr-5" @click="moveTo(link.href)">
+              <span class="pr-5">
                 <span class="pr-3">
                   <i class="fas" :class="link.icon"></i>
                 </span>
