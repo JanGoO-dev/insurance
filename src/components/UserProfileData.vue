@@ -29,11 +29,37 @@
       <GeneralInfo></GeneralInfo>
     </div>
     <div v-show="links[1].visible" class="col-lg-9 pl-5 mt-5">
-      <h1 class="mb-4">{{ links[1].title }}</h1>
+      <div class="row">
+        <h1 class="mb-4 col-sm-11">{{ links[1].title }}</h1>
+        <div
+          @click="toggleEdit"
+          class="cursor d-flex flex-row-reverse col-sm-1 align-items-start h3 text-warning"
+        >
+          <span v-show="editable">
+            <i class="far fa-eye"></i>
+          </span>
+          <span v-show="!editable">
+            <i class="fas fa-pen-nib"></i>
+          </span>
+        </div>
+      </div>
       <PersonalInfo></PersonalInfo>
     </div>
     <div v-show="links[2].visible" class="col-lg-9 pl-5 mt-5">
-      <h1 class="mb-4">{{ links[2].title }}</h1>
+      <div class="row">
+        <h1 class="mb-4 col-sm-11">{{ links[2].title }}</h1>
+        <div
+          @click="toggleEdit"
+          class="cursor d-flex flex-row-reverse col-sm-1 align-items-start h3 text-warning"
+        >
+          <span v-show="editable">
+            <i class="far fa-eye"></i>
+          </span>
+          <span v-show="!editable">
+            <i class="fas fa-pen-nib"></i>
+          </span>
+        </div>
+      </div>
       <ContactInfo></ContactInfo>
     </div>
     <div v-show="links[3].visible" class="col-lg-9 pl-5 mt-5">

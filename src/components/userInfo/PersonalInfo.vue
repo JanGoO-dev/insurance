@@ -4,14 +4,14 @@
       <div v-for="(info, index) in information" :key="index" class="my-2">
         <span class="h5 text-warning">{{ info.feild }}:</span>
         <span
-          v-show="!edit"
-          contenteditable="edit"
+          v-show="!editable"
+          :contenteditable="editable"
           @input="onInput"
           class="h5 ml-3 text-secondary"
         >{{ info.data }}</span>
         <p
-          v-show="edit"
-          contenteditable="edit"
+          v-show="editable"
+          :contenteditable="editable"
           @input="onInput"
           class="h5 ml-3 p-3 mt-2 text-dark bg-light"
         >{{ info.data }}</p>
@@ -22,7 +22,6 @@
 
 <script>
 export default {
-  props: ["edit"],
   data() {
     return {
       information: [
@@ -35,6 +34,16 @@ export default {
         { feild: "Marital Status", data: "Single" }
       ]
     };
+  },
+  methods: {
+    onInput(e) {
+      console.log(e.target.innerText);
+    }
+  },
+  computed: {
+    editable() {
+      return this.$store.getters.get_editable;
+    }
   }
 };
 </script>
