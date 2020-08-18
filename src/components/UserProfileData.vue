@@ -11,7 +11,7 @@
         >{{ link.title }}</a>
       </div>
     </div>
-    <div v-show="links[0].visible" class="col-lg-9 pl-5 mt-5">
+    <div v-show="links[0].visible" class="extend col-lg-9 pl-5 mt-5">
       <div class="row">
         <h1 class="mb-4 col-sm-11">{{ links[0].title }}</h1>
         <div
@@ -28,7 +28,7 @@
       </div>
       <GeneralInfo></GeneralInfo>
     </div>
-    <div v-show="links[1].visible" class="col-lg-9 pl-5 mt-5">
+    <div v-show="links[1].visible" class="extend col-lg-9 pl-5 mt-5">
       <div class="row">
         <h1 class="mb-4 col-sm-11">{{ links[1].title }}</h1>
         <div
@@ -45,7 +45,7 @@
       </div>
       <PersonalInfo></PersonalInfo>
     </div>
-    <div v-show="links[2].visible" class="col-lg-9 pl-5 mt-5">
+    <div v-show="links[2].visible" class="extend col-lg-9 pl-5 mt-5">
       <div class="row">
         <h1 class="mb-4 col-sm-11">{{ links[2].title }}</h1>
         <div
@@ -62,7 +62,7 @@
       </div>
       <ContactInfo></ContactInfo>
     </div>
-    <div v-show="links[3].visible" class="col-lg-9 pl-5 mt-5">
+    <div v-show="links[3].visible" class="extend col-lg-9 pl-5 mt-5">
       <h1 class="mb-4">{{ links[3].title }}</h1>
       <CompanyPolicy></CompanyPolicy>
     </div>
@@ -105,7 +105,18 @@ export default {
       console.log(this.editable);
       this.editable = !this.editable;
       this.$store.commit("set_editable");
+    },
+    toggleExtend() {
+      var e = document.querySelector(".extend");
+      if (window.innerWidth < 750) {
+        e.classList.remove("pl-5");
+      } else {
+        e.classList.add("pl-5");
+      }
     }
+  },
+  mounted() {
+    window.addEventListener("resize", this.toggleExtend);
   },
   computed: {
     editable() {

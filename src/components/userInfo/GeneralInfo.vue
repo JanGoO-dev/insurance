@@ -1,19 +1,19 @@
 <template>
   <div>
-    <div class="card p-5 border-0 shadow">
+    <div class="extend-size card h5 p-5 border-0 shadow text-justify">
       <div v-for="(info, index) in information" :key="index" class="my-2">
-        <span class="h5 text-warning">{{ info.feild }}:</span>
+        <span class="text-warning">{{ info.feild }}:</span>
         <span
           v-show="!editable"
           :contenteditable="editable"
           @input="onInput"
-          class="h5 ml-3 text-secondary"
+          class="ml-3 text-secondary"
         >{{ info.data }}</span>
         <p
           v-show="editable"
           :contenteditable="editable"
           @input="onInput"
-          class="h5 ml-3 p-3 mt-2 text-dark bg-light"
+          class="ml-3 p-3 mt-2 text-dark bg-light"
         >{{ info.data }}</p>
       </div>
     </div>
@@ -37,9 +37,22 @@ export default {
       ]
     };
   },
+  mounted() {
+    window.addEventListener("resize", this.toggleSize);
+  },
   methods: {
     onInput(e) {
       console.log(e.target.innerText);
+    },
+    toggleSize() {
+      var e = document.querySelector(".extend-size");
+      if (window.innerWidth < 750) {
+        e.classList.remove("h5", "shadow", "p-5");
+        e.classList.add("h6");
+      } else {
+        e.classList.add("h5", "shadow", "p-5");
+        e.classList.remove("h6");
+      }
     }
   },
   computed: {
@@ -52,9 +65,12 @@ export default {
 
 <style scoped>
 span {
-  letter-spacing: 2px !important;
+  letter-spacing: 2px;
 }
-span:hover > *[contenteditable="true"] {
-  background-color: blue !important;
+
+@media screen and (max-width: 750px) {
+  span {
+    letter-spacing: 0px !important;
+  }
 }
 </style>

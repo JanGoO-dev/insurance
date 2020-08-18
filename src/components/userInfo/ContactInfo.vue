@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="card p-5 border-0 shadow">
+    <div class="extend-size-C card h5 p-5 border-0 shadow">
       <div v-for="(info, index) in information" :key="index" class="my-2">
-        <span class="h5 text-warning">{{ info.feild }}:</span>
+        <span class="text-warning">{{ info.feild }}:</span>
         <span
           v-show="!editable"
           :contenteditable="editable"
@@ -56,9 +56,22 @@ export default {
       ]
     };
   },
+  mounted() {
+    window.addEventListener("resize", this.toggleSizeC);
+  },
   methods: {
     onInput(e) {
       console.log(e.target.innerText);
+    },
+    toggleSizeC() {
+      var e = document.querySelector(".extend-size-C");
+      if (window.innerWidth < 750) {
+        e.classList.remove("h5", "shadow", "p-5");
+        e.classList.add("h6");
+      } else {
+        e.classList.add("h5", "shadow", "p-5");
+        e.classList.remove("h6");
+      }
     }
   },
   computed: {
@@ -72,5 +85,11 @@ export default {
 <style scoped>
 span {
   letter-spacing: 2px !important;
+}
+
+@media screen and (max-width: 750px) {
+  span {
+    letter-spacing: 0px !important;
+  }
 }
 </style>
