@@ -207,7 +207,7 @@ export default {
 .context {
   position: absolute;
   top: 70px;
-  right: 200px;
+  right: 6%;
   z-index: 99;
   box-shadow: 10px 10px 40px #00000050;
   .context-link:hover {
